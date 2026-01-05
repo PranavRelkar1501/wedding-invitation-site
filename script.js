@@ -166,18 +166,6 @@ function checkTimeline(){
 window.addEventListener("scroll", checkTimeline);
 checkTimeline();
 
-
-/********************** 
- WHATSAPP SHARE 
-***********************/
-function shareInvite(){
-  const text = encodeURIComponent("You are invited to our wedding 🎉 Here is the invitation link:");
-  const url = encodeURIComponent(window.location.href);
-
-  window.open(`https://wa.me/?text=${text}%0A${url}`);
-}
-
-
 /********************** 
  OPEN MAP 
 ***********************/
