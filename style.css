@@ -1,0 +1,284 @@
+/* GLOBAL RESET + FONT */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#fffbea; /* warm light yellow */
+  color:#2b2b2b;
+  font-family:'Poppins', sans-serif;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display', serif;
+  margin-top:0;
+}
+
+/* THEME COLORS */
+:root{
+  --green:#2e7d32;
+  --yellow:#ffd54f;
+  --dark:#0f1b12;
+}
+
+/* HERO */
+.hero{
+  height:85vh;
+  background:url('https://images.unsplash.com/photo-1529634806980-65d8c50e3b21?auto=format&fit=crop&w=1200&q=60') center/cover no-repeat;
+  color:white;
+  text-align:center;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 15px;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(#00000040,#000000aa);
+}
+
+.hero h1{
+  position:relative;
+  font-size:56px;
+  letter-spacing:1px;
+}
+
+.tagline,.date{
+  position:relative;
+  font-size:20px;
+}
+
+.date{
+  display:inline-block;
+  background:var(--yellow);
+  color:#1f4d22;
+  padding:6px 14px;
+  border-radius:20px;
+  margin-top:10px;
+  font-weight:600;
+}
+
+/* SECTIONS */
+.section{
+  padding:50px 20px;
+  text-align:center;
+}
+
+.section h2{
+  font-size:32px;
+  margin-bottom:10px;
+  color:var(--green);
+}
+
+/* GALLERY SLIDER */
+.slider img{
+  width:100%;
+  max-height:450px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 10px 25px #00000015;
+}
+
+/* STATIC GALLERY GRID */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+.gallery img{
+  width:300px;
+  border-radius:12px;
+  transition:.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* EVENT CARDS */
+.card{
+  background:white;
+  max-width:420px;
+  padding:20px;
+  margin:15px auto;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border-left:7px solid var(--green);
+}
+
+/* RSVP FORM */
+.rsvp{
+  max-width:420px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* added proper labels */
+.rsvp label{
+  text-align:left;
+  font-size:14px;
+  font-weight:600;
+  margin-top:5px;
+}
+
+.rsvp textarea{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  resize:none;
+  min-height:80px;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea{
+  width:100%;
+  box-sizing:border-box;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  box-shadow:0 5px 12px #0000000a;
+}
+
+/* button */
+.rsvp button{
+  padding:12px;
+  border:none;
+  background:var(--green);
+  color:white;
+  border-radius:12px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.rsvp button:hover{
+  background:#256428;
+}
+
+.note{
+  font-size:12px;
+  color:#666;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp{
+  background:#25D366 !important;
+  color:white;
+}
+
+/* TIMELINE */
+.timeline{
+  border-left:4px solid var(--green);
+  margin:20px auto;
+  padding-left:18px;
+  max-width:600px;
+}
+
+.event{
+  margin:20px 0;
+  opacity:0;
+  transform:translateX(-20px);
+  transition:.6s;
+  position:relative;
+}
+
+/* animated dot */
+.event::before{
+  content:'';
+  width:14px;
+  height:14px;
+  background:var(--green);
+  border-radius:50%;
+  position:absolute;
+  left:-9px;
+  margin-top:4px;
+}
+
+.event.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* PASSWORD LOCK */
+#lockScreen{
+  position:fixed;
+  inset:0;
+  background:#fffbea;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+#lockScreen input{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #aaa;
+}
+
+#lockScreen button{
+  margin-top:10px;
+  padding:10px 20px;
+  border-radius:12px;
+  background:var(--green);
+  color:white;
+  border:none;
+}
+
+.hiddenLock{
+  display:none;
+}
+
+/* GENERAL BUTTON */
+button{
+  padding:8px 15px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+
+/* DARK MODE */
+.dark{
+  background:var(--dark);
+  color:white;
+}
+
+.dark .card{
+  background:#112417;
+  color:white;
+}
+
+.dark .rsvp input,
+.dark .rsvp select,
+.dark .rsvp textarea{
+  background:#0d1b11;
+  color:white;
+  border:1px solid #335f3a;
+}
+
+/* dark placeholders */
+.dark .rsvp input::placeholder,
+.dark .rsvp textarea::placeholder{
+  color:#aaa;
+}
+
+.dark .date{
+  color:black;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{
+    font-size:40px;
+  }
+}

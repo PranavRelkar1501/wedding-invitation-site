@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Atharva & Anubhuti - Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================== BASE ==================== */
+
+body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#fffbea;
+  color:#234a2f;
+}
+
+:root{
+  --primary:#2f7d32;  /* green */
+  --accent:#ffcc33;   /* yellow */
+}
+
+.hidden{
+  display:none;
+}
+
+.dark{
+  background:#0d1b0f;
+  color:white;
+}
+
+/* ==================== HERO ==================== */
+
+.hero{
+  height:90vh;
+  background:url("https://picsum.photos/1200/800?blur=2") center/cover;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(#00000077,#000000aa);
+}
+
+.hero h1,.hero p{
+  position:relative;
+}
+
+.tagline{
+  font-size:20px;
+  letter-spacing:2px;
+}
+
+.date{
+  background:var(--accent);
+  color:#234a2f;
+  padding:6px 14px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+/* ==================== SECTIONS ==================== */
+
+.section{
+  padding:40px 20px;
+  text-align:center;
+}
+
+.section h2{
+  font-family:"Playfair Display";
+  font-size:30px;
+}
+
+/* ==================== CARDS ==================== */
+
+.card{
+  max-width:400px;
+  margin:12px auto;
+  padding:16px;
+  border-radius:14px;
+  background:white;
+  border-left:6px solid var(--primary);
+  box-shadow:0 10px 25px #00000010;
+}
+
+/* ==================== BUTTONS ==================== */
+
+button{
+  background:var(--primary);
+  border:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+button:hover{
+  background:#256428;
+}
+
+#darkToggle{
+  position:fixed;
+  right:10px;
+  top:10px;
+  z-index:99;
+}
+
+/* ==================== GALLERY ==================== */
+
+.slider{
+  max-width:900px;
+  margin:auto;
+}
+
+.slider img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* ==================== COUNTDOWN ==================== */
+
+#timer{
+  font-size:28px;
+  text-align:center;
+  padding:15px;
+  color:var(--primary);
+}
+
+/* ==================== RSVP FORM ==================== */
+
+.rsvp{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea{
+  width:90%;
+  max-width:400px;
+  padding:10px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+textarea{
+  resize:none;
+  min-height:80px;
+}
+
+/* ==================== WHATSAPP ==================== */
+
+.whatsapp{
+  background:#25D366;
+}
+
+</style>
+</head>
+
+<body>
+
+<button id="darkToggle">🌙 Dark Mode</button>
+
+<header class="hero">
+  <h1>Atharva & Anubhuti</h1>
+  <p class="tagline">We are getting married</p>
+  <p class="date">16 January 2026 • Akola</p>
+</header>
+
+<h2 id="timer"></h2>
+
+<!-- STORY -->
+<section class="section">
+  <h2>Our Story</h2>
+  <p>
+    Two hearts, one journey. From strangers to soulmates, and now… forever. ❤️
+  </p>
+</section>
+
+<!-- GALLERY -->
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="slider">
+    <img id="slide" src="https://picsum.photos/1200/600?1">
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section">
+  <h2>Wedding Events</h2>
+
+  <div class="card">
+    <h3>Sangeet Night</h3>
+    <p>15 January • 7:00 PM</p>
+    <p>Ganesh Krupa Wedding Hall</p>
+  </div>
+
+  <div class="card">
+    <h3>Wedding Ceremony</h3>
+    <p>16 January • 08:50 AM</p>
+    <p>Ganesh Krupa Wedding Hall</p>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section">
+  <h2>Wedding Location</h2>
+
+  <iframe
+    width="90%"
+    height="300"
+    style="border-radius:15px"
+    loading="lazy"
+    allowfullscreen
+    src="https://www.google.com/maps?q=Akola&output=embed">
+  </iframe>
+</section>
+
+<!-- RSVP -->
+<section class="section">
+  <h2>RSVP</h2>
+
+  <form id="rsvpForm" class="rsvp">
+
+    <input id="name" type="text" placeholder="Your Name" required>
+
+    <input id="phone" type="tel" placeholder="Phone Number" required>
+
+    <input id="guests" type="number" min="1" placeholder="Number of Guests" required>
+
+    <textarea id="message" placeholder="Message / Wishes"></textarea>
+
+    <select id="attendance" required>
+        <option value="">Will you attend?</option>
+        <option value="Yes">Yes, I'll be there</option>
+        <option value="No">Sorry, can't come</option>
+    </select>
+
+    <button id="submitBtn" type="submit">Submit RSVP</button>
+
+  </form>
+
+  <p id="responseMsg"></p>
+
+</section>
+
+<!-- WhatsApp share -->
+<section class="section">
+  <a id="shareWA" target="_blank">
+    <button class="whatsapp">💌 Share Invitation on WhatsApp</button>
+  </a>
+</section>
+
+<script>
+
+/* ===== COUNTDOWN TIMER ===== */
+
+const countDownDate = new Date("March 16, 2026 08:50:00").getTime();
+
+setInterval(function(){
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+
+  if(distance < 0){
+    document.getElementById("timer").innerHTML = "🎉 Wedding Day!";
+    return;
+  }
+
+  const d = Math.floor(distance/(1000*60*60*24));
+  const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((distance%(1000*60*60))/(1000*60));
+  const s = Math.floor((distance%(1000*60))/1000);
+
+  document.getElementById("timer").innerHTML =
+    d+"d "+h+"h "+m+"m "+s+"s ";
+
+},1000);
+
+
+/* ===== IMAGE SLIDER (OPTIMIZED) ===== */
+
+const sliderImages = [
+ "https://picsum.photos/1200/600?1",
+ "https://picsum.photos/1200/600?2",
+ "https://picsum.photos/1200/600?3"
+];
+
+let current = 0;
+
+setInterval(()=>{
+  current = (current+1) % sliderImages.length;
+  document.getElementById("slide").src = sliderImages[current];
+},3000);
+
+
+/* ===== DARK MODE ===== */
+
+document.getElementById("darkToggle").onclick = ()=>{
+  document.body.classList.toggle("dark");
+};
+
+
+/* ===== RSVP TO GOOGLE SHEETS ===== */
+
+document.getElementById("rsvpForm").addEventListener("submit", e=>{
+  e.preventDefault();
+
+  fetch("https://script.google.com/macros/s/AKfycbz_bkRJ7Gkqe5Sqo6L8PBd2EeifPyQR3UOVrRjle3TSpwwbjPGMxdBadie9FujSBagt/exec",{
+    method:"POST",
+    body:JSON.stringify({
+      name: document.getElementById("name").value,
+      phone: phone.value,
+      guests: guests.value,
+      message: message.value,
+      attendance: attendance.value
+    })
+  })
+  .then(r=>r.text())
+  .then(()=>{
+    document.getElementById("responseMsg").innerHTML = "🎉 RSVP Submitted Successfully!";
+    document.getElementById("rsvpForm").reset();
+  })
+  .catch(()=>{
+    document.getElementById("responseMsg").innerHTML = "❌ Error submitting RSVP";
+  });
+});
+
+
+/* ===== WHATSAPP SHARE ===== */
+
+const msg = encodeURIComponent(
+`You are invited to the wedding of Atharva & Anubhuti 💍
+Wedding Date: 16 Jan 2026
+Invitation Link: YOUR_SITE_URL`
+);
+
+document.getElementById("shareWA").href =
+  "https://wa.me/?text="+msg;
+
+</script>
+
+</body>
+</html>
